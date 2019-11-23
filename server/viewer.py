@@ -1,12 +1,13 @@
 import cv2
-#import zmq
-#import base64
-#import numpy as np
+import zmq
+import base64
+import numpy as np
 
+cv2.ocl.setUseOpenCL(False)
 print("setting up context")
-#context = zmq.Context()
+context = zmq.Context()
 print("making socket")
-"""
+
 footage_socket = context.socket(zmq.SUB)
 print("binding socket")
 footage_socket.bind('tcp://*:5555')
@@ -18,6 +19,7 @@ while True:
     try:
         print("Waiting for frame")
         frame = footage_socket.recv_string()
+        print("received string")
         img = base64.b64decode(frame)
         npimg = np.fromstring(img, dtype=np.uint8)
         source = cv2.imdecode(npimg, 1)
@@ -25,4 +27,4 @@ while True:
     except KeyboardInterrupt:
         cv2.destroyAllWindows()
         break
-"""
+
