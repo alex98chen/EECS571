@@ -2,6 +2,8 @@ import spotipy
 import spotipy.util as util
 import sys
 
+#http://mysite.com/callback/?code=AQDDsK8BHw1nfpJA-emPYB4sckNLbM-GwKZPjtVMLn0DOLw-mdJjcYc1RGGJVSIDt_ioVKr4YGdRbWQm6-15jEUj6QAzsiCg9USe9Xf8CIZvh6I0IJccrTIQ2o0Ub44L-0sI7k6TZNEUjKuVmF-Zi6Vujwvip2idHABp1eK6rgQ-I3Zpp2IN9pkXN_0-2zZauSlNv1an3uBhRpkQpvSHkB2GeCY
+
 scope = 'user-library-read'
 
 if len(sys.argv) > 1:
