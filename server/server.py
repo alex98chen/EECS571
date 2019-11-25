@@ -5,7 +5,8 @@ import cv2
 import numpy as np
 import time 
 
-matchImage = cv2.imread('images/MichiganCoaster.jpeg', 1)
+#matchImage = cv2.imread('images/Test480360.jpg', 1)
+matchImage = cv2.imread('images/MichiganCoaster640480.jpeg', 1)
 matchImage = matchImage.astype('uint8')
 matchImage = cv2.cvtColor(matchImage, cv2.COLOR_BGR2GRAY)
 MIN_MATCH_COUNT = 15
@@ -15,6 +16,9 @@ sift = cv2.xfeatures2d.SIFT_create()
 #sift = cv2.FastFeatureDetector_create()
 #sift = cv2.ORB_create()
 kp1, des1 = sift.detectAndCompute(matchImage, None)
+print("number of key points and des")
+print(len(kp1))
+print(len(des1))
 #des1 = np.float32(des1)
 
 
@@ -66,48 +70,51 @@ def main():
 
     try:
         while True:
-            initial = time.time()
-            image_len = struct.unpack('<L', connection.read(struct.calcsize('<L')))[0]
-            if not image_len:
-                break
-            #print("Time to get image1: ", time.time() - initial)
-            
-            image_stream = io.BytesIO()
-            #print("Image length: ", image_len)
-            image_stream.write(connection.read(image_len))
-
-            image_stream.seek(0)
-            #image = Image.open(image_stream)
-            #file_bytes = np.asarray(bytearray(image_stream.read()), dtype = np.uint8)
-            #print("Time to get image: ", time.time() - initial)
-
-            #image = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
-            #print(time.time()) 
-            image = cv2.imdecode(np.fromstring(image_stream.read(), np.uint8), 1)
-            image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-            #print("Time to decode: ", time.time() - initial)
-            #print('image is %dx%d' % image.shape)
-            imageNum += 1
-            numberOfMatches = numMatches(image)
-            #numberOfMatches = 0
-            print(numberOfMatches)
-            if numberOfMatches > MIN_MATCH_COUNT:
-                if countMatch >= BUFFER_AMOUNT:
-                    imageThere = True
-                else:
-                    countMatch += 1
+            try:
+                initial = time.time()
+                image_len = struct.unpack('<L', connection.read(struct.calcsize('<L')))[0]
+                if not image_len:
+                    break
+                #print("Time to get image1: ", time.time() - initial)
                 
-            else:
-                if countMatch < 1:
-                    imageThere = False
+                image_stream = io.BytesIO()
+                #print("Image length: ", image_len)
+                image_stream.write(connection.read(image_len))
+
+                image_stream.seek(0)
+                #image = Image.open(image_stream)
+                #file_bytes = np.asarray(bytearray(image_stream.read()), dtype = np.uint8)
+                #print("Time to get image: ", time.time() - initial)
+
+                #image = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
+                #print(time.time()) 
+                image = cv2.imdecode(np.fromstring(image_stream.read(), np.uint8), 1)
+                image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+                #print("Time to decode: ", time.time() - initial)
+                #print('image is %dx%d' % image.shape)
+                imageNum += 1
+                numberOfMatches = numMatches(image)
+                #numberOfMatches = 0
+                print(numberOfMatches)
+                if numberOfMatches > MIN_MATCH_COUNT:
+                    if countMatch >= BUFFER_AMOUNT:
+                        imageThere = True
+                    else:
+                        countMatch += 1
+                    
                 else:
-                    countMatch -= 1
-            if imageThere:
-                print("-------------Image is there-----------------")
-            else:
-                print("*************Image is not there*************")
-            #print("image written? ", succ)
-            print("Time: ", time.time() - initial)
+                    if countMatch < 1:
+                        imageThere = False
+                    else:
+                        countMatch -= 1
+                if imageThere:
+                    print("-------------Image is there-----------------")
+                else:
+                    print("*************Image is not there*************")
+                #print("image written? ", succ)
+                print("Time: ", time.time() - initial)
+            finally:
+               a = 0 
 
     finally:
         connection.close()
