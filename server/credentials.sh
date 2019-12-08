@@ -1,4 +1,5 @@
-export SPOTIPY_CLIENT_ID='client_id'
-export SPOTIPY_CLIENT_SECRET='client_secret'
-export SPOTIPY_REDIRECT_URI='uri'
-export SPOTIPY_USERNAME='username'
+export SPOTIPY_CLIENT_ID='685a1af809f94ac881016d869898d0fa'
+export SPOTIPY_CLIENT_SECRET='20fd967fac724a9d80307f622fa43618'
+export SPOTIPY_REDIRECT_URI='http://mysite.com/callback/'
+export SPOTIPY_USERNAME='alex98chen4'
+

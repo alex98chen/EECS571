@@ -1,7 +1,12 @@
 {
   "users": {
-    "alex98chen": {
-      "images/MichiganCoaster640480.jpeg": "spotify:track:6wVbHLCBOCqp6052WcWXLG"
+    "alex98chen4": {
+      "images/MichiganCoaster640480.jpeg": "spotify:track:6wVbHLCBOCqp6052WcWXLG",
+      "images/MCARD640480.jpg": "spotify:track:5VarZFY00sO54HErJ3TPCI",
+      "images/WildFlower640480.jpg": "spotify:track:6cgqqfmb3CljtoOG1EqYQ8",
+      "images/UMO640480.jpg": "spotify:track:5VarZFY00sO54HErJ3TPCI",
+      "images/MonaLisa640480.jpg": "spotify:track:2Rtj1B24RTIrIg2TMQ8WS9",
+      "images/BattleSounds640480.jpg": "spotify:track:2HNY9xoWG1KzAw5rKYlnJs"
     }
   }
 }

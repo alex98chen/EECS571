@@ -44,6 +44,8 @@ def numMatches(streamImage):
     start = time.time()
     #print(matchImage)
     kp2, des2 = sift.detectAndCompute(streamImage, None)
+    if des2 is None:
+        return 0
     """
     kp1, des1 = orb.detectAndCompute(matchImage, None)
     kp2, des2 = orb.detectAndCompute(streamImage, None)
@@ -104,25 +106,32 @@ def main():
     try:
         while True:
             initial = time.time()
-            image_len = struct.unpack('<L', connection.read(struct.calcsize('<L')))[0]
+            #image_len = struct.unpack('<L', connection.read(struct.calcsize('<L')))[0]
+            
+            data = connection.read(170000)
+            image_len = struct.unpack('<L', data[0:4])[0]
+
+            
+            
             if not image_len:
                 break
-            #print("Time to get image1: ", time.time() - initial)
+            print("Time to get image: ", time.time() - initial)
             
             image_stream = io.BytesIO()
-            #print("Image length: ", image_len)
-            image_stream.write(connection.read(image_len))
+            print("Image length: ", image_len)
+            #image_stream.write(connection.read(image_len))
+            
+            image_stream.write(data[4:4+image_len])
+
 
             image_stream.seek(0)
             #image = Image.open(image_stream)
             #file_bytes = np.asarray(bytearray(image_stream.read()), dtype = np.uint8)
-            #print("Time to get image: ", time.time() - initial)
 
             #image = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
-            #print(time.time()) 
             image = cv2.imdecode(np.fromstring(image_stream.read(), np.uint8), 1)
             image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-            #print("Time to decode: ", time.time() - initial)
+            print("Time to decode: ", time.time() - initial)
             #print('image is %dx%d' % image.shape)
             imageNum += 1
             numberOfMatches = numMatches(image)
