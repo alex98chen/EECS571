@@ -1,0 +1,46 @@
+[INFO    ] Starting server                                                                                                                                                                                  
+[INFO    ] Processing user alex98chen4                                                                                                                                                                      
+[INFO    ] Number of keypoints for images/Experiment1/MichiganCoaster640480.jpeg: 500                                                                                                                       
+[INFO    ] Number of keypoints for images/Experiment1/Optimist640480.jpg: 520                                                                                                                               
+[INFO    ] Image images/Experiment1/KeroKero640480.jpg rejected: 285 < 500                                                                                                                                  
+[INFO    ] Number of keypoints for images/Experiment1/Strokes640480.jpg: 2106                                                                                                                               
+[INFO    ] Number of keypoints for images/Experiment1/Vulfpeck640480.jpg: 533                                                                                                                               
+[INFO    ] Number of keypoints for images/Experiment1/BestDay640480.jpg: 872                                                                                                                                
+[INFO    ] Image images/Experiment1/WildFlower640480.jpg rejected: 420 < 500                                                                                                                                
+[INFO    ] Server::init                                                                                                                                                                                     
+[INFO    ] Server::run                                                                                                                                                                                      
+ReadTime,6.8353111743927                                                                                                                                                                                    
+SIFTTime,0.3738079071044922                                                                                                                                                                                 
+ReadTime,4.706385374069214                                                                                                                                                                                  
+SIFTTime,0.26933789253234863                                                                                                                                                                                
+ReadTime,4.713080883026123                                                                                                                                                                                  
+SIFTTime,0.39662933349609375                                                                                                                                                                                
+ReadTime,4.707864284515381                                                                                                                                                                                  
+SIFTTime,0.29871106147766113                                                                                                                                                                                
+ReadTime,4.701566219329834                                                                                                                                                                                  
+SIFTTime,0.402862548828125                                                                                                                                                                                  
+ReadTime,4.71704888343811                                                                                                                                                                                   
+SIFTTime,0.3080611228942871                                                                                                                                                                                 
+ReadTime,4.697445869445801                                                                                                                                                                                  
+SIFTTime,0.37019968032836914
+ReadTime,4.712021112442017
+SIFTTime,0.4227893352508545
+ReadTime,4.712292432785034
+SIFTTime,0.4970078468322754
+ReadTime,4.713615894317627
+SIFTTime,0.2831764221191406
+ReadTime,4.723715305328369
+SIFTTime,0.2461233139038086
+ReadTime,4.706973075866699
+SIFTTime,0.36980271339416504
+ReadTime,4.705831527709961
+SIFTTime,0.21756482124328613
+ReadTime,4.70781683921814
+SIFTTime,0.26751184463500977
+ReadTime,4.707595109939575
+SIFTTime,0.282564640045166
+ReadTime,4.7063117027282715
+SIFTTime,0.2163853645324707
+ReadTime,4.7070581912994385
+SIFTTime,0.1804964542388916
+
